@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universal College of Paranaque - Election System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="ucp-header">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="d-flex align-items-center">
+                        <img src="getThemePhoto.png" alt="UCP Logo" class="ucp-logo me-3">
+                        <h4 class="text-white mb-0">Universal College of Paranaque</h4>
+                    </div>
+                </div>
+                <div class="col-md-6 text-end">
+                    <div class="user-info text-white">
+                        <i class="fas fa-user-circle me-2"></i>
+                        <span id="currentUser">ADMIN, ELECTION</span>
+                        <button class="btn btn-outline-light btn-sm ms-3" onclick="logout()">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sidebar Navigation -->
+    <div class="ucp-layout">
+        <aside class="ucp-sidebar">
+            <nav class="sidebar-nav">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#" onclick="showSection('dashboard')">
+                            <i class="fas fa-tachometer-alt"></i> Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showSection('elections')">
+                            <i class="fas fa-vote-yea"></i> Elections
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showSection('candidates')">
+                            <i class="fas fa-users"></i> Candidates
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showSection('voters')">
+                            <i class="fas fa-user-check"></i> Voters
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showSection('results')">
+                            <i class="fas fa-chart-bar"></i> Results
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showSection('reports')">
+                            <i class="fas fa-file-alt"></i> Reports
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showSection('settings')">
+                            <i class="fas fa-cog"></i> Settings
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="ucp-main">
+            <div class="container-fluid">
+                <!-- Welcome Section -->
+                <div class="welcome-section mb-4">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <h3 class="text-primary">Welcome back, <span id="adminName">Election Admin</span></h3>
+                            <p class="text-muted">Manage the student government election system</p>
+                        </div>
+                        <div class="col-md-4 text-end">
+                            <div class="outstanding-balance">
+                                <span class="text-muted">Election Status:</span>
+                                <span class="badge bg-success">ACTIVE</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dashboard Content -->
+                <div id="mainContent">
+                    <!-- Dashboard cards will be loaded here -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title">Election System Login</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center mb-4">
+                        <img src="getThemePhoto.png" alt="UCP Logo" class="mb-3" style="width: 80px; height: 80px; object-fit: contain;">
+                        <h6>Universal College of Paranaque</h6>
+                    </div>
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="username" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="userType" class="form-label">Login As</label>
+                            <select class="form-control" id="userType" required>
+                                <option value="">Select User Type</option>
+                                <option value="admin">Election Administrator</option>
+                                <option value="student">Student Voter</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
